@@ -1,7 +1,7 @@
 {
-  "name": "my-portfolio",
+  "name": "sajunu-portfolio",
   "version": "0.1.0",
-  "homepage": "https://sajununaidu.github.io/my-portfolio",
+  "homepage": "https://sajununaidu.github.io/Sajunu-Portfolio",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

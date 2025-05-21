@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Sajunu-Portfolio/static/css/main.5c7eb205.css",
+    "main.js": "/Sajunu-Portfolio/static/js/main.d1c4dd98.js",
+    "static/js/453.c3960d25.chunk.js": "/Sajunu-Portfolio/static/js/453.c3960d25.chunk.js",
+    "static/media/my1.jpg": "/Sajunu-Portfolio/static/media/my1.3d764f40fecb1a252b53.jpg",
+    "index.html": "/Sajunu-Portfolio/index.html",
+    "main.5c7eb205.css.map": "/Sajunu-Portfolio/static/css/main.5c7eb205.css.map",
+    "main.d1c4dd98.js.map": "/Sajunu-Portfolio/static/js/main.d1c4dd98.js.map",
+    "453.c3960d25.chunk.js.map": "/Sajunu-Portfolio/static/js/453.c3960d25.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c7eb205.css",
+    "static/js/main.d1c4dd98.js"
+  ]
+}

@@ -109,13 +109,13 @@ const App = () => {
             I’m a dedicated Full Stack Developer with a strong background in both frontend and backend technologies.
             I’m a hard worker who thrives under pressure and handles multiple tasks effectively.
           </p>
-          <div className="buttons">
+          {/* <div className="buttons">
             <a href="#resume" className="primary">View Resume</a>
             <a href="#projects" className="secondary">View Projects</a>
             <a href="#contact" className="primary">Contact Me</a>
-            <a href="https://github.com/yourusername" target="_blank" className="secondary" rel="noreferrer">GitHub</a>
+            <a href="https://github.com/sajunu" target="_blank" className="secondary" rel="noreferrer">GitHub</a>
             <a href="https://linkedin.com/in/yourusername" target="_blank" className="secondary" rel="noreferrer">LinkedIn</a>
-          </div>
+          </div> */}
         </section>
       </Section>
 

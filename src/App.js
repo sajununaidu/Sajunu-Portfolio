@@ -231,7 +231,7 @@ const App = () => {
           <p>If you'd like to connect or have any project in mind, feel free to reach out!</p>
 
           <div className="contact-details">
-            <p><strong>Email:</strong> <a href="mailto:sajununaidu@example.com">sajununaidu@example.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:sajununaidu1@gmail.com">sajununaidu1@gmail.com</a></p>
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sajununaidu" target="_blank" rel="noopener noreferrer">linkedin.com/in/sajununaidu</a></p>
             <p><strong>GitHub:</strong> <a href="https://github.com/sajununaidu" target="_blank" rel="noopener noreferrer">github.com/sajununaidu</a></p>
           </div>

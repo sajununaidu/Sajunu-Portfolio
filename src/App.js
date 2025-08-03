@@ -1,245 +1,245 @@
 import React from "react";
-import { Button } from "@mui/material";
-import { Fade, Slide, Zoom, Grow } from "@mui/material";
-import { keyframes } from "@emotion/react";
+import { motion } from "framer-motion";
 import sajunu from "./images/my1.jpg";
 import "./styles/custom.css";
 
-const rotateIn = keyframes`
-  0% { transform: rotate(-360deg); opacity: 0; }
-  100% { transform: rotate(0); opacity: 1; }
-`;
-
-const slideInRight = keyframes`
-  0% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-`;
-
-const animations = [Fade, Slide, Zoom, Grow];
-
-const Section = ({ children, transition }) => {
-  const Wrapper = transition || Fade;
-  return <Wrapper in={true} timeout={1000}>{children}</Wrapper>;
+const fadeInUp = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
 };
 
-const getRandomAnimation = () => {
-  return animations[Math.floor(Math.random() * animations.length)];
+const slideInRight = {
+  initial: { opacity: 0, x: "100%" },
+  animate: { opacity: 1, x: 0 },
+  transition: { duration: 1, ease: "easeOut" },
+};
+
+const scaleHover = {
+  whileHover: { scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.2)" },
 };
 
 const iotProjects = [
   {
-    title: 'Smart Lock System',
+    title: "Smart Lock System",
     description:
-      'A secure remote access system for smart locks used in doors, cabinets, and parcel boxes. Features include real-time status, remote lock/unlock, and session-based audit tracking.',
+      "A secure remote access system for smart locks used in doors, cabinets, and parcel boxes. Features include real-time status, remote lock/unlock, and session-based audit tracking.",
     technologies: [
-      'ReactJS', 'AngularJS', 'Java (Play Framework)', 'MongoDB',
-      'MQTT', 'HTTPS', 'DigitalOcean', 'NGINX'
+      "ReactJS",
+      "AngularJS",
+      "Java (Play Framework)",
+      "MongoDB",
+      "MQTT",
+      "HTTPS",
+      "DigitalOcean",
+      "NGINX",
     ],
   },
   {
-    title: 'Smart Refrigerator System',
+    title: "Smart Refrigerator System",
     description:
-      'Enables remote door control, real-time status, condition-based alerts (e.g., high temperature, power failure), and data preservation with detailed audit trails.',
+      "Enables remote door control, real-time status, condition-based alerts, and data preservation with detailed audit trails.",
     technologies: [
-      'ReactJS', 'AngularJS', 'Java (Play Framework)', 'MongoDB',
-      'MQTT', 'HTTPS', 'DigitalOcean', 'NGINX'
+      "ReactJS",
+      "AngularJS",
+      "Java (Play Framework)",
+      "MongoDB",
+      "MQTT",
+      "HTTPS",
+      "DigitalOcean",
+      "NGINX",
     ],
   },
   {
-    title: 'Sensor Dashboard (Company Showcase)',
+    title: "Sensor Dashboard (Company Showcase)",
     description:
-      'Displays real-time environmental data (e.g., CO₂, CO, NH₃) with live graphs, threshold alerts via email/SMS, data downloads, and an audit trail.',
+      "Displays real-time environmental data with live graphs, threshold alerts via email/SMS, data downloads, and an audit trail.",
     technologies: [
-      'ReactJS', 'Java (Play Framework)', 'MongoDB', 'TimescaleDB',
-      'MQTT', 'HTTPS', 'DigitalOcean', 'NGINX'
+      "ReactJS",
+      "Java (Play Framework)",
+      "MongoDB",
+      "TimescaleDB",
+      "MQTT",
+      "HTTPS",
+      "DigitalOcean",
+      "NGINX",
     ],
   },
   {
-    title: 'DIY Smart Switches',
+    title: "DIY Smart Switches",
     description:
-      'Personal home automation project using ESP32 and touch sensors for remote device control over Wi-Fi using the Blynk platform.',
+      "Home automation project with ESP32 and touch sensors, remotely controlled over Wi-Fi using Blynk.",
     technologies: [
-      'ESP32', 'Arduino IDE', 'Blynk', 'Relay Module', 'Touch Sensors',
-      'Wi-Fi Communication'
+      "ESP32",
+      "Arduino IDE",
+      "Blynk",
+      "Relay Module",
+      "Touch Sensors",
+      "Wi-Fi Communication",
     ],
   },
 ];
 
 const nonIotProjects = [
   {
-    title: 'Company Certification Rating System',
+    title: "Company Certification Rating System",
     description:
-      'Web platform where users upload documents for analysis using AWS Textract. The system rates the company based on data and user-selected options, with WebSocket-based UI updates and audit tracking.',
+      "Web platform analyzing documents with AWS Textract, rating companies, WebSocket updates, and audit tracking.",
     technologies: [
-      'ReactJS', 'Node.js', 'TimescaleDB', 'AWS S3', 'AWS Textract',
-      'WebSockets', 'PgAdmin'
+      "ReactJS",
+      "Node.js",
+      "TimescaleDB",
+      "AWS S3",
+      "AWS Textract",
+      "WebSockets",
+      "PgAdmin",
     ],
   },
 ];
 
-
-
 const App = () => {
-  
   const renderProjectCard = (project) => (
-    <div className="project-card" key={project.title}>
+    <motion.div
+      className="project-card"
+      key={project.title}
+      {...scaleHover}
+      variants={fadeInUp}
+    >
       <h3>{project.title}</h3>
       <p>{project.description}</p>
       <div className="tech-list">
         {project.technologies.map((tech) => (
-          <span key={tech} className="tech-tag">{tech}</span>
+          <span key={tech} className="tech-tag">
+            {tech}
+          </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
-  
+
   return (
-    <div style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", backgroundColor: "#0d1117", color: "#c9d1d9" }}>
-      <Section transition={Fade}>
-        <section className="heading">
-        <img
-          src={sajunu}
-          className="fade-in"
-          alt="Profile"
-          style={{ width: "250px", height: "250px", borderRadius: "50%", marginBottom: "20px", objectFit:"cover" }}
-        />
-          <h1>Hi, I'm Sajunu Naidu</h1>
-          <h2>Full Stack Developer specializing in IoT & Web Solutions</h2>
-          <p>
-            I’m a dedicated Full Stack Developer with a strong background in both frontend and backend technologies.
-            I’m a hard worker who thrives under pressure and handles multiple tasks effectively.
-          </p>
-          {/* <div className="buttons">
-            <a href="#resume" className="primary">View Resume</a>
-            <a href="#projects" className="secondary">View Projects</a>
-            <a href="#contact" className="primary">Contact Me</a>
-            <a href="https://github.com/sajunu" target="_blank" className="secondary" rel="noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" className="secondary" rel="noreferrer">LinkedIn</a>
-          </div> */}
-        </section>
-      </Section>
-
-      <Section transition={Zoom}>
-        <section className="about" id="about">
-          <div className="about-container">
-            <div className="about-content">
-              <h2>About Me</h2>
-              <p>
-                I'm a Full Stack Developer with 5+ years of hands-on experience, working professionally since 2020. My core skills include ReactJS, AngularJS, NodeJS, Java, Play Framework, and MQTT. I specialize in IoT systems and microservice-based architectures.
-              </p>
-              <p>
-                I've led and developed multiple smart IoT solutions including smart locks, smart refrigerators, and connected switches. These projects involved real-time status monitoring, remote access, alert systems, and detailed audit trail mechanisms for session-based tracking and admin verification. Additionally, I’ve worked on a non-IoT document rating system using AWS Textract for smart file analysis and S3 integration.
-              </p>
-              <p>
-                I value clean, scalable code and believe in delivering reliable systems that solve real-world problems. I’m a proactive team player, a quick learner, and thrive in fast-paced environments where multiple tasks need careful balancing.
-              </p>
-            </div>
-          </div>
-        </section>
-      </Section>
-
-      <Section transition={Slide}>
-        <section className="projects" id="projects">
-        <div className="projects-container">
-          <h2>Projects</h2>
-
-          <h3 className="project-category">📡 IoT Projects</h3>
-          <div className="project-grid">
-            {iotProjects.map(renderProjectCard)}
-          </div>
-
-          <h3 className="project-category">💼 Non-IoT Projects</h3>
-          <div className="project-grid">
-            {nonIotProjects.map(renderProjectCard)}
-          </div>
+    <div className="container">
+      {/* Header */}
+      <motion.section {...fadeInUp} className="section header">
+        <div className="profile-image-wrapper">
+          <img src={sajunu} className="profile-image" alt="Profile" />
         </div>
-      </section>
-      </Section>
+        <h1 className="name">Hi, I'm Sajunu Naidu</h1>
+        <h2 className="subtitle">
+          Full Stack Developer | DevOps | IoT Solutions Architect
+        </h2>
+        <p className="intro">
+          I'm a tech-savvy engineer blending full-stack, DevOps, and IoT expertise to build scalable, cloud-powered platforms. From backend architecture to edge-device deployments, I craft solutions that are robust and elegant.
+        </p>
+      </motion.section>
 
-      <Section transition={Grow}>
-        <section className="skills" id="skills">
+      {/* About Me */}
+      <motion.section {...fadeInUp} className="section about" id="about">
+        <h2>About Me</h2>
+        <p>
+          With 5+ years of industry experience, I specialize in building robust web platforms and integrating them with smart IoT hardware. My core strengths lie in crafting microservices, managing DevOps pipelines, and deploying secure cloud infrastructures.
+        </p>
+        <p>
+          From smart appliances to real-time dashboards, my focus is on performance, security, and intuitive user experiences.
+        </p>
+      </motion.section>
+
+      {/* Projects */}
+      <motion.section {...slideInRight} className="section projects" id="projects">
+        <h2>Projects</h2>
+        <h3 className="category-title">📡 IoT Projects</h3>
+        <div className="grid">{iotProjects.map(renderProjectCard)}</div>
+        <h3 className="category-title">💼 Non-IoT Projects</h3>
+        <div className="grid">{nonIotProjects.map(renderProjectCard)}</div>
+      </motion.section>
+
+      {/* Skills */}
+      <motion.section {...fadeInUp} className="section skills" id="skills">
         <h2>Skills</h2>
-        <div className="skills-container">
-
-          <div className="skill-category">
+        <div className="skills-grid">
+          {/* Frontend */}
+          <div className="skill-card">
             <h3>Frontend</h3>
             <ul>
               <li>ReactJS</li>
               <li>AngularJS</li>
+              <li>VueJS</li>
               <li>HTML5 / CSS3</li>
               <li>JavaScript / TypeScript</li>
+              <li>Grafana Integration and Grafana Integration via iframes</li>
             </ul>
           </div>
-
-          <div className="skill-category">
+          {/* Backend */}
+          <div className="skill-card">
             <h3>Backend</h3>
             <ul>
               <li>Node.js</li>
               <li>Java</li>
+              <li>Python</li>
               <li>Play Framework</li>
               <li>Express.js</li>
+              <li>Spring Boot</li>
+              <li>Prometheus</li>
             </ul>
           </div>
-
-          <div className="skill-category">
+          {/* IoT & Communication */}
+          <div className="skill-card">
             <h3>IoT & Communication</h3>
             <ul>
               <li>MQTT</li>
               <li>WebSockets</li>
+              <li>Kafka</li>
               <li>ESP32</li>
+              <li>Arduino IDE</li>
               <li>Blynk Platform</li>
             </ul>
           </div>
-
-          <div className="skill-category">
+          {/* DevOps & Cloud */}
+          <div className="skill-card">
+            <h3>DevOps & Cloud</h3>
+            <ul>
+              <li>Docker</li>
+              <li>Kubernetes (Basic)</li>
+              <li>NGINX</li>
+              <li>Rate Limiting</li>
+              <li>GitHub Actions</li>
+              <li>AWS EC2 / S3</li>
+              <li>Terraform (Basic)</li>
+              <li>DigitalOcean</li>
+            </ul>
+          </div>
+          {/* Databases */}
+          <div className="skill-card">
             <h3>Databases</h3>
             <ul>
               <li>MongoDB</li>
               <li>TimescaleDB</li>
               <li>PostgreSQL</li>
+              <li>MySQL</li>
             </ul>
-          </div>
-
-          <div className="skill-category">
-            <h3>Tools & Platforms</h3>
-            <ul>
-              <li>Postman</li>
-              <li>MQTTX / MQTT Explorer</li>
-              <li>pgAdmin 4</li>
-              <li>DigitalOcean</li>
-              <li>AWS S3 / Textract</li>
-            </ul>
-          </div>
-
-          <div className="skill-category">
-            <h3>Architecture & DevOps</h3>
-            <ul>
-              <li>Microservice Architecture</li>
-              <li>NGINX (Load Balancer / Reverse Proxy)</li>
-              <li>CI/CD basics</li>
-            </ul>
-          </div>
-
-        </div>
-      </section>
-      </Section>
-
-      <Section transition={Fade}>
-        <section className="contact" id="contact">
-        <div className="contact-container">
-          <h2>Contact Me</h2>
-          <p>If you'd like to connect or have any project in mind, feel free to reach out!</p>
-
-          <div className="contact-details">
-            <p><strong>Email:</strong> <a href="mailto:sajununaidu1@gmail.com">sajununaidu1@gmail.com</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sajununaidu" target="_blank" rel="noopener noreferrer">linkedin.com/in/sajununaidu</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/sajununaidu" target="_blank" rel="noopener noreferrer">github.com/sajununaidu</a></p>
           </div>
         </div>
-      </section>
-      </Section>
+      </motion.section>
 
-      <footer style={{ textAlign: "center", padding: "30px", backgroundColor: "#0d1117", color: "#8b949e" }}>
+      {/* Contact */}
+      <motion.section {...fadeInUp} className="section contact" id="contact">
+        <h2>Contact Me</h2>
+        <p>Open to freelance, collaborations, or just a tech chat!</p>
+        <div className="contact-info">
+          <p>
+            <strong>Email:</strong> <a href="mailto:sajununaidu1@gmail.com">sajununaidu1@gmail.com</a>
+          </p>
+          <p>
+            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sajununaidu" target="_blank" rel="noopener noreferrer">linkedin.com/in/sajununaidu</a>
+          </p>
+          <p>
+            <strong>GitHub:</strong> <a href="https://github.com/sajununaidu" target="_blank" rel="noopener noreferrer">github.com/sajununaidu</a>
+          </p>
+        </div>
+      </motion.section>
+
+      {/* Footer */}
+      <footer className="footer">
         &copy; {new Date().getFullYear()} Sajunu Naidu. All rights reserved.
       </footer>
     </div>
